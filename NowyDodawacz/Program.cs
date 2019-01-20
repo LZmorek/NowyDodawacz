@@ -16,7 +16,7 @@ namespace NowyDodawacz
 
             Pobrania number = new Pobrania();
             int FirstNum = number.Sprawdz(Num);
- 
+            
             Pobrania Op = new Pobrania();
             String Oper =Op.PobierzOperator(Operator);
 
@@ -27,7 +27,6 @@ namespace NowyDodawacz
             Console.ReadKey();
         }
     }
-
 
     class Dzialania
     {
@@ -61,7 +60,10 @@ namespace NowyDodawacz
                 return Wynik;
             }
             catch (DivideByZeroException)
-            { };
+            {
+                Console.WriteLine("Przykro Mi ale nie dzieli sie przez 0");
+                Console.ReadKey();
+            };
             return Wynik;
             
         }
@@ -78,11 +80,10 @@ namespace NowyDodawacz
         }
     }
 
-
-
     class Pobrania
     {
         public string Number = "";
+        public int Num = 0;
         
 
         public int TakeNumber(int Num)
@@ -99,7 +100,7 @@ namespace NowyDodawacz
             {
                 try
                 {
-                    TakeNumber(Num);
+                    Num=TakeNumber(Num);
                     end = "end";
                 }
                 catch (FormatException fEx)
